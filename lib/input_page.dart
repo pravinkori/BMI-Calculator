@@ -12,13 +12,62 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: const Text('BMI Calculator'),
       ),
-      body: const Center(
-        child: Text('Body Text'),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    colour: Color(0xFF4C5065),
+                  ),
+                ),
+                Expanded(
+                  child: Card(
+                    colour: Color(0xFF4C5065),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Card(
+              colour: Color(0xFF4C5065),
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Card(
+                    colour: Color(0xFF4C5065),
+                  ),
+                ),
+                Expanded(
+                  child: Card(
+                    colour: Color(0xFF4C5065),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+    );
+  }
+}
+
+class Card extends StatelessWidget {
+  Card({required this.colour});
+  final Color colour;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.all(20.0),
+      decoration: BoxDecoration(
+        color: colour,
+        borderRadius: BorderRadius.circular(10.0),
       ),
     );
   }
