@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'input_page.dart';
 
 void main() {
@@ -13,6 +14,7 @@ class BMICalculator extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         primaryColor: Color(0xFF0A0E21),
         scaffoldBackgroundColor: Color(0xFF0A0E21),
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: InputPage(),
     );
