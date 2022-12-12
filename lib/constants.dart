@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 const kActiveCardColour = Color(0xFF1D1E33);
 const kInactiveCardColour = Color(0xFF111328);
 const kBottomContainerColour = Color(0xFFEB1555);
-const kBottomContainerHeight = 80.0;
+const kActiveTrackColour = Colors.white;
+const kInactiveTrackColour = Color(0xFF8D8E98);
+const kThumbColour = Color(0xFFEB1555);
+const kThumbOverlayColour = Color(0x29EB1555);
 
+const kBottomContainerHeight = 80.0;
 const kMinimumHeight = 120.0;
 const kMaximumHeight = 220.0;
 
