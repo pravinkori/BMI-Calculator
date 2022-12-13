@@ -1,10 +1,12 @@
+import 'package:bmi_calculator/screens/results_page.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:neopop/neopop.dart';
-import './icon_content.dart';
-import './reusable_card.dart';
-import './constants.dart';
+import '../components/icon_content.dart';
+import '../components/reusable_card.dart';
+import '../constants.dart';
+import '../components/bottom_button.dart';
 
 enum Gender { male, female }
 
@@ -233,62 +235,27 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           Container(
-            // color: bottomContainerColour,
-            // margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            // height: bottomContainerHeight,
             child: Padding(
               padding:
                   const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
-              child: NeoPopButton(
-                color: kBottomContainerColour,
-                onTapUp: () => HapticFeedback.vibrate(),
-                onTapDown: () => HapticFeedback.vibrate(),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        "Calculate",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              child: BottomButton(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return ResultPage();
+                      },
+                    ),
+                  );
+                  HapticFeedback.vibrate();
+                },
+                buttonTitle: 'CALCULATE',
               ),
             ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  RoundIconButton({required this.icon, required this.onPressed});
-
-  final IconData icon;
-  final VoidCallback onPressed;
-  // const RoundIconButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      elevation: 0.0,
-      child: Icon(icon),
     );
   }
 }
