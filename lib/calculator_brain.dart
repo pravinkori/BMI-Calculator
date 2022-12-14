@@ -6,10 +6,10 @@ class Calculator {
   final int height;
   final int weight;
 
-  late double _bmi;
+  double _bmi = 0.0;
 
   String calculateBMI() {
-    double _bmi = weight / pow(height / 100, 2);
+    _bmi = weight / pow(height / 100, 2);
     return _bmi.toStringAsFixed(1);
   }
 

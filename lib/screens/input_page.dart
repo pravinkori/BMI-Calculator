@@ -26,11 +26,11 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'BMI Calculator',
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF0A0E21),
+        backgroundColor: const Color(0xFF0A0E21),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -79,7 +79,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'HEIGHT',
                     style: kLabelTextStyle,
                   ),
@@ -92,8 +92,8 @@ class _InputPageState extends State<InputPage> {
                         height.toString(),
                         style: kNumberTextStyle,
                       ),
-                      SizedBox(width: 5.0),
-                      Text(
+                      const SizedBox(width: 5.0),
+                      const Text(
                         'cm',
                         style: kLabelTextStyle,
                       )
@@ -106,10 +106,10 @@ class _InputPageState extends State<InputPage> {
                       thumbColor: kThumbColour,
                       overlayColor: kThumbOverlayColour,
                       trackHeight: 2.0,
-                      thumbShape: RoundSliderThumbShape(
+                      thumbShape: const RoundSliderThumbShape(
                         enabledThumbRadius: 15.0,
                       ),
-                      overlayShape: RoundSliderOverlayShape(
+                      overlayShape: const RoundSliderOverlayShape(
                         overlayRadius: 30.0,
                       ),
                     ),
@@ -137,7 +137,7 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'WEIGHT',
                             style: kLabelTextStyle,
                           ),
@@ -150,8 +150,8 @@ class _InputPageState extends State<InputPage> {
                                 weight.toString(),
                                 style: kNumberTextStyle,
                               ),
-                              SizedBox(width: 5.0),
-                              Text(
+                              const SizedBox(width: 5.0),
+                              const Text(
                                 'kg',
                                 style: kLabelTextStyle,
                               )
@@ -187,7 +187,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           'AGE',
                           style: kLabelTextStyle,
                         ),
@@ -200,8 +200,8 @@ class _InputPageState extends State<InputPage> {
                               age.toString(),
                               style: kNumberTextStyle,
                             ),
-                            SizedBox(width: 5.0),
-                            Text(
+                            const SizedBox(width: 5.0),
+                            const Text(
                               'y/o',
                               style: kLabelTextStyle,
                             )
@@ -235,29 +235,27 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
-              child: BottomButton(
-                onTap: () {
-                  Calculator calc = Calculator(weight: weight, height: height);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return ResultPage(
-                          bmiResult: calc.calculateBMI(),
-                          resultText: calc.getResult(),
-                          interpretation: calc.getInterpretation(),
-                        );
-                      },
-                    ),
-                  );
-                  HapticFeedback.vibrate();
-                },
-                buttonTitle: 'CALCULATE',
-              ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
+            child: BottomButton(
+              onTap: () {
+                Calculator calc = Calculator(weight: weight, height: height);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return ResultPage(
+                        bmiResult: calc.calculateBMI(),
+                        resultText: calc.getResult(),
+                        interpretation: calc.getInterpretation(),
+                      );
+                    },
+                  ),
+                );
+                HapticFeedback.vibrate();
+              },
+              buttonTitle: 'CALCULATE',
             ),
           ),
         ],

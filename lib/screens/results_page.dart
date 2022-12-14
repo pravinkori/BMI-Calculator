@@ -18,7 +18,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: const Text('BMI CALCULATOR'),
         centerTitle: true,
         backgroundColor: Color(0xFF0A0E21),
       ),
@@ -28,9 +28,9 @@ class ResultPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               alignment: Alignment.bottomLeft,
-              child: Text(
+              child: const Text(
                 'Your Result',
                 style: kTitleTextStyle,
               ),
@@ -52,11 +52,11 @@ class ResultPage extends StatelessWidget {
                     bmiResult,
                     style: kBMITextStyle,
                   ),
-                  Text(
+                  const Text(
                     'Normal BMI range:',
                     style: kBodyTextStyle,
                   ),
-                  Text(
+                  const Text(
                     '18.5 - 25 kg/m2',
                     style: kBodyTextStyle,
                   ),
@@ -69,17 +69,15 @@ class ResultPage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Padding(
-              padding:
-                  const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
-              child: BottomButton(
-                buttonTitle: 'Re-Calculate',
-                onTap: () {
-                  Navigator.pop(context);
-                  HapticFeedback.vibrate();
-                },
-              ),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
+            child: BottomButton(
+              buttonTitle: 'Re-Calculate',
+              onTap: () {
+                Navigator.pop(context);
+                HapticFeedback.vibrate();
+              },
             ),
           ),
         ],
